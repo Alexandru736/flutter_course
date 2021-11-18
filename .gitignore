@@ -44,3 +44,14 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+/lib/curs2/app.dart
+/lib/app1/app1.dart
+/lib/curs3/curs3app.dart
+/lib/curs4/curs4.dart
+/lib/curs5/curs5.dart
+/lib/curs4/inheritance.dart
+/lib/curs2/notite.txt
+/lib/curs3/notite.txt
+/lib/curs4/notite.txt
+/lib/curs5/notite.txt
+/lib/app1/test_app.dart
