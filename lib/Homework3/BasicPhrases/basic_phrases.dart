@@ -24,10 +24,26 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final List<TileContent> phrases = <TileContent>[
-    TileContent('audio/romana/salut.mp3', 'salut', 'audio/english/salut(English).mp3'),
-    TileContent('audio/romana/ma_numesc.mp3', 'ma numesc', 'audio/english/ma_numesc(English).mp3'),
-    TileContent('audio/romana/sunt_bine.mp3', 'sunt bine', 'audio/english/sunt_bine(English).mp3'),
-    TileContent('audio/romana/ce_mai_faci.mp3', 'ce mai faci?', 'audio/english/ce_mai_faci(English).mp3'),
+    TileContent(
+      'audio/romana/salut.mp3',
+      'salut',
+      'audio/english/salut(English).mp3',
+    ),
+    TileContent(
+      'audio/romana/ma_numesc.mp3',
+      'ma numesc',
+      'audio/english/ma_numesc(English).mp3',
+    ),
+    TileContent(
+      'audio/romana/sunt_bine.mp3',
+      'sunt bine',
+      'audio/english/sunt_bine(English).mp3',
+    ),
+    TileContent(
+      'audio/romana/ce_mai_faci.mp3',
+      'ce mai faci?',
+      'audio/english/ce_mai_faci(English).mp3',
+    ),
   ];
 
   bool isTapped = true;
@@ -126,7 +142,6 @@ class _HomePageState extends State<HomePage> {
 }
 
 class TileContent {
-
   TileContent(this.fileName, this.tileTitle, this.fileNameEnglish);
 
   String fileName;
