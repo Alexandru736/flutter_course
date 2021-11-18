@@ -33,17 +33,13 @@ class _HomePageState extends State<HomePage> {
   int player2Score = 0;
 
   String? verifySet(int index1, int index2, int index3) {
-    final Box? element1 =
-        checkedBoxes.firstWhereOrNull((Box element) => element.index == index1);
-    final Box? element2 =
-        checkedBoxes.firstWhereOrNull((Box element) => element.index == index2);
-    final Box? element3 =
-        checkedBoxes.firstWhereOrNull((Box element) => element.index == index3);
+    final Box? element1 = checkedBoxes.firstWhereOrNull((Box element) => element.index == index1);
+    final Box? element2 = checkedBoxes.firstWhereOrNull((Box element) => element.index == index2);
+    final Box? element3 = checkedBoxes.firstWhereOrNull((Box element) => element.index == index3);
     if (element1 == null || element2 == null || element3 == null) {
       return null;
     } else {
-      if (element1.color == element2.color &&
-          element2.color == element3.color) {
+      if (element1.color == element2.color && element2.color == element3.color) {
         if (element1.color == player1Color) {
           return '1';
         }
@@ -56,7 +52,7 @@ class _HomePageState extends State<HomePage> {
     if (verifySet(0, 3, 6) != null) {
       return verifySet(0, 3, 6);
     }
-    if (verifySet(2, 5, 8) != null) {
+    if (verifySet(1, 4, 7) != null) {
       return verifySet(1, 4, 7);
     }
     if (verifySet(2, 5, 8) != null) {
@@ -107,12 +103,10 @@ class _HomePageState extends State<HomePage> {
           GridView.builder(
             shrinkWrap: true,
             padding: const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 0),
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 3),
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
             itemCount: 9,
             itemBuilder: (BuildContext context, int index) {
-              final Box? element = checkedBoxes
-                  .firstWhereOrNull((Box item) => item.index == index);
+              final Box? element = checkedBoxes.firstWhereOrNull((Box item) => item.index == index);
 
               return GestureDetector(
                 onTap: () {
@@ -131,9 +125,7 @@ class _HomePageState extends State<HomePage> {
                         builder: (BuildContext context) {
                           return AlertDialog(
                             title: const Text('Winner'),
-                            content: Text(verifyWinner() != null
-                                ? 'Player ${verifyWinner()} won the game'
-                                : 'Draw'),
+                            content: Text(verifyWinner() != null ? 'Player ${verifyWinner()} won the game' : 'Draw'),
                             actions: <Widget>[
                               TextButton(
                                 onPressed: () {
@@ -166,6 +158,28 @@ class _HomePageState extends State<HomePage> {
               );
             },
           ),
+          Padding(
+            padding: const EdgeInsets.only(top: 15.0),
+            child: Center(
+              child: SizedBox(
+                width: MediaQuery.of(context).size.width * 0.3,
+                height: 40.0,
+                child: ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      player1Score = 0;
+                      player2Score = 0;
+                      checkedBoxes = <Box>[];
+                    });
+                  },
+                  child: const Text(
+                    'Reset',
+                    style: TextStyle(fontSize: 20.0),
+                  ),
+                ),
+              ),
+            ),
+          )
         ],
       ),
     );
